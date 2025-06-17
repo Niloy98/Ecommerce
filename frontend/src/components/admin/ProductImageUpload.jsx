@@ -20,7 +20,6 @@ function ProductImageUpload({
   const inputRef = useRef(null);
 
   function handleImageFileChange(event) {
-    console.log(event.target.files, "event.target.files");
     const selectedFile = event.target.files?.[0];
 
     if (selectedFile) setImageFile(selectedFile);
@@ -51,7 +50,6 @@ function ProductImageUpload({
       `${import.meta.env.VITE_API_URL}/api/admin/products/upload-image`,
       data
     );
-    console.log(response, "response");
 
     if (response?.data?.success) {
       setUploadedImageUrl(response.data.result.url);

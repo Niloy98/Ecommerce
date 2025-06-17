@@ -16,9 +16,7 @@ const createOrder = async (req, res) => {
 
     // Stock deduction
     for (let item of cartItems) {
-      const product = await Product.findById(item.productId);
-      console.log(item.productId);
-      
+      const product = await Product.findById(item.productId);      
       if (!product || product.totalStock < item.quantity) {
         return res.status(400).json({
           success: false,

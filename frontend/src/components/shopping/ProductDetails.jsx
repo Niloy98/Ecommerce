@@ -65,7 +65,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
   }
 
   function handleAddReview() {
-    console.log(productDetails?._id);
     
     dispatch(
       addReview({

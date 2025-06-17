@@ -53,8 +53,6 @@ function ShoppingOrderConfirmation({ currentSelectedAddress, totalCartAmount }) 
       orderDate: new Date(),
     };
 
-    // console.log(orderData);
-
     dispatch(createNewOrder(orderData)).then((data) => {
       if (data?.payload?.success) {
         toast.success("Order confirmed");
