@@ -20,9 +20,10 @@ import {
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { shoppingViewHeaderMenuItems } from "@/config";
-import { logoutUser } from "@/store/authSlice";
+import { logoutUser, resetTokenAndCredentials } from "@/store/authSlice";
 import { fetchCartItems } from "@/store/shop/shoppingCartSlice";
 import { UserCartWrapper } from "..";
+import Img from "../../assets/ShopmartLogo.png";
 
 function MenuItems() {
   const navigate = useNavigate();
@@ -76,7 +77,10 @@ function HeaderRightContent() {
   const dispatch = useDispatch();
 
   function handleLogout() {
-    dispatch(logoutUser());
+    // dispatch(logoutUser());
+    dispatch(resetTokenAndCredentials());
+    sessionStorage.clear();
+    navigate("/auth/login")
   }
 
   useEffect(() => {
@@ -139,8 +143,9 @@ function ShoppingHeader() {
       <div className="flex h-16 items-center justify-between px-4 md:px-6">
         <Link to="/shop/home" className="flex items-center gap-2">
           <img
-            src="../../../public/ShopmartLogo.png"
+            src={Img}
             className="h-10 w-10 rounded-2xl"
+            alt="SM"
           />
           <span className="font-bold">ShopMart</span>
         </Link>

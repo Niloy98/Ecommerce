@@ -11,15 +11,18 @@ function AdminHeader({ setOpen }) {
   const navigate = useNavigate();
 
   function handleLogout() {
-    dispatch(logoutUser()).then((data) => {
-      if (data?.payload?.success) {
-        toast.success(data?.payload?.message);
-      } else {
-        toast.error(data.payload?.message, {
-          className: "bg-red-500 text-white",
-        });
-      }
-    });
+    // dispatch(logoutUser()).then((data) => {
+    //   if (data?.payload?.success) {
+    //     toast.success(data?.payload?.message);
+    //   } else {
+    //     toast.error(data.payload?.message, {
+    //       className: "bg-red-500 text-white",
+    //     });
+    //   }
+    // });
+    dispatch(resetTokenAndCredentials());
+    sessionStorage.clear();
+    navigate("/auth/login")
   }
   return (
     <header className="flex items-center justify-between px-4 py-3 bg-background border-b ">
