@@ -9,8 +9,7 @@ import {
 import { createNewOrder } from "@/store/shop/shoppingOrderSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 function ShoppingOrderConfirmation({ currentSelectedAddress, totalCartAmount }) {
   const navigate = useNavigate();
@@ -189,7 +188,6 @@ function ShoppingOrderConfirmation({ currentSelectedAddress, totalCartAmount }) 
           </Button>
         </CardFooter>
       </Card>
-      <ToastContainer />
     </div>
     </>
   );

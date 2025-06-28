@@ -4,8 +4,7 @@ import { registerUser } from "@/store/authSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 const initialstate = {
   username: "",
@@ -25,9 +24,7 @@ function AuthRegister() {
         toast.success(data?.payload?.message);
         setTimeout(() => navigate("/auth/login"), 1000)
       } else {
-        toast.error(data.payload?.message, {
-          className: "bg-red-500 text-white",
-        });
+        toast.error(data.payload?.message);
       }
     });
   }
@@ -57,7 +54,6 @@ function AuthRegister() {
         onSubmit={onSubmit}
         isBtnDisabled={false}
       />
-      <ToastContainer />
     </div>
   );
 }

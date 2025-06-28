@@ -2,8 +2,7 @@ import { Minus, Plus, Trash } from "lucide-react";
 import { Button } from "../ui/button";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCartItem, updateCartQuantity } from "@/store/shop/shoppingCartSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 
 function UserCartItemsContent({ cartItem }) {
@@ -20,7 +19,7 @@ function UserCartItemsContent({ cartItem }) {
         const indexOfCurrentCartItem = getCartItems.findIndex(
           (item) => item.productId === getCartItem?.productId
         );
-
+        
         const getCurrentProductIndex = productList.findIndex(
           (product) => product._id === getCartItem?.productId
         );
@@ -109,7 +108,6 @@ function UserCartItemsContent({ cartItem }) {
           size={20}
         />
       </div>
-      <ToastContainer />
     </div>
   );
 }

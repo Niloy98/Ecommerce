@@ -2,6 +2,14 @@ import { useSelector } from "react-redux";
 import { DialogContent } from "../ui/dialog";
 import { Label } from "../ui/label";
 import { Separator } from "../ui/separator";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 
 function ShoppingOrderDetailsView({ orderDetails }) {
   const { user } = useSelector((state) => state.auth);
@@ -36,17 +44,24 @@ function ShoppingOrderDetailsView({ orderDetails }) {
         <div className="grid gap-4">
           <div className="grid gap-2">
             <div className="font-medium">Order Details</div>
-            <ul className="grid gap-3">
-              {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
-                ? orderDetails?.cartItems.map((item) => (
-                    <li className="flex items-center justify-between">
-                      <span>Title: {item.title}</span>
-                      <span>Quantity: {item.quantity}</span>
-                      <span>Price: ${item.price}</span>
-                    </li>
-                  ))
-                : null}
-            </ul>
+            <Table className="border rounded-2xl">
+              <TableHeader>
+                <TableHead>Title</TableHead>
+                <TableHead>Quantity</TableHead>
+                <TableHead>Price</TableHead>
+              </TableHeader>
+              <TableBody>
+                {orderDetails?.cartItems && orderDetails?.cartItems.length > 0
+                  ? orderDetails?.cartItems.map((item) => (
+                      <TableRow>
+                        <TableCell>{item.title}</TableCell>
+                        <TableCell>{item.quantity}</TableCell>
+                        <TableCell>{item.title}</TableCell>
+                      </TableRow>
+                    ))
+                  : null}
+              </TableBody>
+            </Table>
           </div>
         </div>
         <div className="grid gap-4">

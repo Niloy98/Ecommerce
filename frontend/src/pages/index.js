@@ -11,6 +11,8 @@ import ShoppingListing from "./shopping/ShoppingListing";
 import PageNotFound from "./PageNotFound";
 import UnAuthPage from "./UnAuthPage";
 import SearchProducts from "./shopping/SearchProducts";
+import PaypalReturnPage from "./shopping/PaypalReturnPage";
+import PaymentSuccessPage from "./shopping/PaymentSuccessPage";
 
 export {
   AuthLogin,
@@ -25,5 +27,7 @@ export {
   ShoppingListing,
   PageNotFound,
   UnAuthPage,
-  SearchProducts
+  SearchProducts,
+  PaypalReturnPage,
+  PaymentSuccessPage
 };

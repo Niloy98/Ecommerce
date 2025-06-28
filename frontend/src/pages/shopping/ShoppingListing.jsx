@@ -15,8 +15,7 @@ import { useSearchParams } from "react-router-dom";
 import { ProductDetailsDialog, ProductFilter, ShoppingProductTile } from "@/components";
 import { fetchAllFilteredProducts, fetchProductDetails } from "@/store/shop/shoppingProductSlice";
 import { addToCart, fetchCartItems } from "@/store/shop/shoppingCartSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 
 
@@ -189,7 +188,6 @@ function ShoppingListing() {
         setOpen={setOpenDetailsDialog}
         productDetails={productDetails}
       />
-      <ToastContainer />
     </div>
   );
 }

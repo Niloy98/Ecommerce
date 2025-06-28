@@ -4,8 +4,7 @@ import { loginUser } from "@/store/authSlice";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 const initialstate = {
   email: "",
@@ -53,7 +52,6 @@ function AuthLogin() {
         onSubmit={onSubmit}
         isBtnDisabled={false}
       />
-      <ToastContainer />
     </div>
   );
 }

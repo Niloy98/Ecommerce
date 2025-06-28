@@ -15,8 +15,7 @@ import {
   editProduct,
   fetchAllProducts,
 } from "@/store/admin/productsSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 const initialFormData = {
   image: null,
@@ -153,7 +152,6 @@ function AdminProducts() {
           </div>
         </SheetContent>
       </Sheet>
-      <ToastContainer />
     </>
   );
 }

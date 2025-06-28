@@ -9,8 +9,7 @@ import {
   getOrderDetailsForAdmin,
   updateOrderStatus,
 } from "@/store/admin/adminOrderSlice";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 const initialFormData = {
   status: "",
@@ -118,7 +117,6 @@ function AdminOrderDetailsView({ orderDetails }) {
           />
         </div>
       </div>
-      <ToastContainer />
     </DialogContent>
   );
 }

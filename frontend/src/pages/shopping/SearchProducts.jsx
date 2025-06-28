@@ -6,8 +6,7 @@ import { getSearchResults, resetSearchResults } from "@/store/shop/shoppingSearc
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 function SearchProducts() {
   const [keyword, setKeyword] = useState("");
@@ -102,7 +101,6 @@ function SearchProducts() {
         setOpen={setOpenDetailsDialog}
         productDetails={productDetails}
       />
-      <ToastContainer />
     </div>
   );
 }

@@ -10,8 +10,7 @@ import { addToCart, fetchCartItems } from "@/store/shop/shoppingCartSlice";
 import { setProductDetails } from "@/store/shop/shoppingProductSlice";
 import { addReview, getReviews } from "@/store/shop/reviewSlice";
 import { StarRatingComponent } from "..";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 function ProductDetailsDialog({ open, setOpen, productDetails }) {
   const [reviewMsg, setReviewMsg] = useState("");
@@ -210,7 +209,6 @@ function ProductDetailsDialog({ open, setOpen, productDetails }) {
           </div>
         </div>
       </DialogContent>
-      <ToastContainer />
     </Dialog>
   );
 }

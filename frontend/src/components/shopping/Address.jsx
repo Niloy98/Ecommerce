@@ -4,8 +4,7 @@ import { addressFormControls } from "@/config";
 import { useDispatch, useSelector } from "react-redux";
 import { AddressCard, CommonForm } from "..";
 import { addNewAddress, deleteAddress, editaAddress, fetchAllAddresses } from "@/store/shop/shoppingAddressSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "sonner";
 
 const initialAddressFormData = {
   address: "",
@@ -27,10 +26,7 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
 
     if (addressList.length >= 3 && currentEditedId === null) {
       setFormData(initialAddressFormData);
-      toast({
-        title: "You can add max 3 addresses",
-        variant: "destructive",
-      });
+      toast("You can add max 3 addresses");
 
       return;
     }
@@ -127,7 +123,6 @@ function Address({ setCurrentSelectedAddress, selectedId }) {
           isBtnDisabled={!isFormValid()}
         />
       </CardContent>
-      <ToastContainer />
     </Card>
   );
 }

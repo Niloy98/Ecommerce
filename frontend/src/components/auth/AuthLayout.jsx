@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Img from "@/assets/ShopmartLogo.png";
+import Img from "../../assets/ShopmartLogo.png";
 
 function AuthLayout() {
   return (

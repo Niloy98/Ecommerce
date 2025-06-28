@@ -1,25 +1,14 @@
 import { Button } from "../ui/button";
 import { AlignJustify, LogOut } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { logoutUser, resetTokenAndCredentials } from "@/store/authSlice";
+import { resetTokenAndCredentials } from "@/store/authSlice";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function AdminHeader({ setOpen }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   function handleLogout() {
-    // dispatch(logoutUser()).then((data) => {
-    //   if (data?.payload?.success) {
-    //     toast.success(data?.payload?.message);
-    //   } else {
-    //     toast.error(data.payload?.message, {
-    //       className: "bg-red-500 text-white",
-    //     });
-    //   }
-    // });
     dispatch(resetTokenAndCredentials());
     sessionStorage.clear();
     navigate("/auth/login")
@@ -50,7 +39,6 @@ function AdminHeader({ setOpen }) {
           Logout
         </Button>
       </div>
-      <ToastContainer />
     </header>
   );
 }

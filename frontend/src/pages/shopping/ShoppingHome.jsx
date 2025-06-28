@@ -18,11 +18,10 @@ import {
 } from "@/store/shop/shoppingProductSlice";
 import { ProductDetailsDialog, ShoppingProductTile } from "@/components";
 import { addToCart, fetchCartItems } from "@/store/shop/shoppingCartSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { getFeatureImages } from "@/store/common/commonFeatureSlice";
 import { SiNike, SiAdidas, SiPuma, SiZara } from "react-icons/si";
 import { FaStore, FaTshirt } from "react-icons/fa";
+import { toast } from "sonner";
 
 const categoriesWithIcon = [
   { id: "men", label: "Men", icon: ShirtIcon },
@@ -216,7 +215,6 @@ function ShoppingHome() {
         setOpen={setOpenDetailsDialog}
         productDetails={productDetails}
       />
-      <ToastContainer />
     </div>
   );
 }

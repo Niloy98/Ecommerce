@@ -6,8 +6,11 @@ const registerUser = async (req, res) => {
   const { username, email, password } = req.body;
 
   try {
-    if ([email, password, username].some((field) => field?.trim() === "")) {
-      throw new ApiError(400, "All fields are required");
+    if(!username || !password || !email){
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required"
+      })
     }
 
     const checkUser = await User.findOne({ email });
@@ -45,7 +48,10 @@ const loginUser = async (req, res) => {
 
   try {
     if(!email){
-        throw new ApiError(400, "email is required")
+      return res.status(400).json({
+        success: false,
+        message: "email is required"
+      })
     }
 
     const checkUser = await User.findOne({ email });
@@ -79,17 +85,6 @@ const loginUser = async (req, res) => {
         expiresIn: process.env.CLIENT_SECRET_TOKEN_EXPIRY
       }
     );
-
-    // res.cookie("token", token, { httpOnly: true, secure: true }).json({
-    //   success: true,
-    //   message: "Logged in successfully",
-    //   user: {
-    //     email: checkUser.email,
-    //     role: checkUser.role,
-    //     id: checkUser._id,
-    //     username: checkUser.username,
-    //   },
-    // });
 
     res.status(200).json({
       success: true,
